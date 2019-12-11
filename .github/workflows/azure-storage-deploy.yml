@@ -24,7 +24,7 @@ jobs:
       run: dotnet publish --configuration Release 
     
     - name: Publish artifacts
-      uses: actions/upload-artifacts@master
+      uses: actions/upload-artifact@master
       with:
         name: webapp
         path: bin/Release/netstandard2.1/publish/BlazorApp27/dist
