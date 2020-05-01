@@ -47,4 +47,4 @@ jobs:
       with:
         publish-profile: ${{ secrets.BWASM_PUB_PROFILE }}
         app-name: ${{ env.AZURE_APP_NAME }}
-        package: webapp
+        package: blazor-deploy-sample
