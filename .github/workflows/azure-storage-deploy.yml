@@ -58,3 +58,8 @@ jobs:
           az account show
           # az storage account upload
           az storage blob upload-batch --account-name ${{ env.BLOB_STORAGE_ACCOUNT_NAME }} -s webapp -d \$web
+
+    # Azure logout 
+    - name: logout
+      run: |
+        az logout
