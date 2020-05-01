@@ -34,6 +34,7 @@ jobs:
         az logout
       
   deploy:
+    needs: build
     name: Deploy from ACR
     runs-on: ubuntu-latest
     steps:
