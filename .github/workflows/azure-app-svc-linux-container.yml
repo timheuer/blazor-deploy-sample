@@ -26,7 +26,7 @@ jobs:
         password: ${{ secrets.REGISTRY_PASSWORD }}
     
     - run: |
-        docker build . -t deletemeblazoracr.azurecr.io/bwasm:${{ github.sha }}
+        docker build blazor-sample-app/ -t deletemeblazoracr.azurecr.io/bwasm:${{ github.sha }}
         docker push deletemeblazoracr.azurecr.io/bwasm:${{ github.sha }} 
       
     - uses: azure/webapps-container-deploy@v1
