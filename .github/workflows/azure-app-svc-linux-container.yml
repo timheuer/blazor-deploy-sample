@@ -9,7 +9,7 @@ env:
 jobs:
   build:
     if: github.event_name == 'push' && contains(toJson(github.event.commits), '***NO_CI***') == false && contains(toJson(github.event.commits), '[ci skip]') == false && contains(toJson(github.event.commits), '[skip ci]') == false
-    name: Build
+    name: Build Container Image
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -28,8 +28,23 @@ jobs:
     - run: |
         docker build blazor-sample-app/ -t deletemeblazoracr.azurecr.io/bwasm:${{ github.sha }}
         docker push deletemeblazoracr.azurecr.io/bwasm:${{ github.sha }} 
+
+    - name: Azure logout
+      run: |
+        az logout
       
-    - uses: azure/webapps-container-deploy@v1
+  deploy:
+    name: Deploy from ACR
+    runs-on: ubuntu-latest
+    steps:
+
+    - name: 'Login via Azure CLI'
+      uses: azure/login@v1
+      with:
+        creds: ${{ secrets.AZURE_CONTAINER_CREDS }}
+
+    - name: 'Deploy from ACR'
+      uses: azure/webapps-container-deploy@v1
       with:
         app-name: '${{ env.AZURE_APP_NAME }}'
         images: 'deletemeblazoracr.azurecr.io/bwasm:${{ github.sha }}'
