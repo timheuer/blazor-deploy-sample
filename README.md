@@ -1,5 +1,5 @@
 # Blazor WASM Deployment
-This is a sample application that uses Blazor WASM app with no host to publish as a static site to Azure Storage.
+This is a sample application that uses Blazor WASM app with no host to publish as a static site to Azure Storage.  A complimentary blog post explaining this can be found here [Deploy a Blazor WASM site to Azure Storage using GitHub Actions](https://timheuer.com/blog/deploy-blazor-app-to-azure-using-github-actions).
 
 ## How this works
 This is deployed via a GitHub Action workflow (see .github/workflows/azure-storage-deploy.yml).  It uses the .NET Core SDK to build and publish the bits of the app and a series of GitHub Actions composed to distribute and deploy to Azure.
