@@ -1,10 +1,10 @@
-name: .NET Core Build and Deploy (AppSvc Linux)
+name: .NET Core Build and Deploy (AppSvc Win)
 
 on: [push]
 
 env:
   AZURE_RESOURCE_GROUP: blazor-deployment-samples
-  AZURE_APP_NAME: bwasm-linux-server
+  AZURE_APP_NAME: bwasm-win-server
 
 jobs:
   build:
@@ -45,5 +45,5 @@ jobs:
     # Deploy to App Service Linux
     - uses: azure/webapps-deploy@v2
       with:
-        publish-profile: ${{ secrets.BWASM_PUB_PROFILE }}
+        publish-profile: ${{ secrets.BWASM_PUB_PROFILE_WIN }}
         app-name: ${{ env.AZURE_APP_NAME }}

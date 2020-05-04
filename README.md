@@ -7,6 +7,7 @@ This sample takes a Blazor Web Assembly project and uses GitHub Actions to deplo
 - [Azure Storage](.github/workflows/azure-storage-deploy.yml)
 - [Azure App Service (Linux)](.github/workflows/azure-app-svc-linux-deploy.yml)
 - [Azure App Service (Linux) using Containers](.github/workflows/azure-app-svc-linux-container.yml)
+- [Azure App Service (Windows)](.github/workflows/azure-app-svc-windows-deploy.yml)
 
 You can see each of the steps in the .github/workflows files linked above.
 
