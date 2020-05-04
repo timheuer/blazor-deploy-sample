@@ -19,6 +19,20 @@
         <a class="dismiss">🗙</a>
     </div>
     <script src="_framework/blazor.webassembly.js"></script>
+    <script>
+        Blazor.start({
+            loadBootResource: function (type, name, defaultUri, integrity) {
+                if (type !== 'dotnetjs') {
+                    return (async function () {
+                        const response = await fetch(defaultUri + '.gz', { cache: 'no-cache' });
+                        const originalResponseBlob = await response.blob();
+                        const decompressedStream = originalResponseBlob.stream().pipeThrough(new DecompressionStream('gzip'));
+                        return new Response(decompressedStream, { headers: response.headers });
+                    })();
+                }
+            }
+        });
+    </script>
 </body>
 
 </html>
