@@ -28,7 +28,7 @@ jobs:
       uses: actions/upload-artifact@master
       with:
         name: webapp
-        path: blazor-sample-app/bin/Release/netstandard2.1/publish/
+        path: blazor-sample-app/bin/Release/netstandard2.1/publish/wwwroot
 
   deploy:
     needs: build
