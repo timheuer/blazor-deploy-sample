@@ -4,7 +4,7 @@ on: [push]
 
 env:
   AZURE_RESOURCE_GROUP: blazor-deployment-samples
-  AZURE_APP_NAME: deleteme-blazorcontainerapp
+  AZURE_APP_NAME: bwasmcontainerapp
 
 jobs:
   build:
@@ -21,13 +21,13 @@ jobs:
 
     - uses: azure/docker-login@v1
       with:
-        login-server: deletemeblazoracr.azurecr.io
+        login-server: bwasm.azurecr.io
         username: ${{ secrets.REGISTRY_USERNAME }}
         password: ${{ secrets.REGISTRY_PASSWORD }}
     
     - run: |
-        docker build blazor-sample-app/ -t deletemeblazoracr.azurecr.io/bwasm:${{ github.sha }}
-        docker push deletemeblazoracr.azurecr.io/bwasm:${{ github.sha }} 
+        docker build blazor-sample-app/ -t bwasm.azurecr.io/bwasm:${{ github.sha }}
+        docker push bwasm.azurecr.io/bwasm:${{ github.sha }} 
 
     - name: Azure logout
       run: |
@@ -48,7 +48,7 @@ jobs:
       uses: azure/webapps-container-deploy@v1
       with:
         app-name: '${{ env.AZURE_APP_NAME }}'
-        images: 'deletemeblazoracr.azurecr.io/bwasm:${{ github.sha }}'
+        images: 'bwasm.azurecr.io/bwasm:${{ github.sha }}'
     
     - name: Azure logout
       run: |
