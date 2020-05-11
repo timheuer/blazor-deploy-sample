@@ -5,14 +5,9 @@ COPY . ./
 WORKDIR /app/
 RUN dotnet publish -c Release
 
-#FROM nginx:alpine
-
-#ARG NGINX_VERSION=1.18.0
-
 FROM nginx:1.18.0 AS build
 WORKDIR /src
 RUN apt-get update && apt-get install -y git wget build-essential libssl-dev libpcre3-dev zlib1g-dev
-#ARG NGINX_VERSION
 RUN CONFARGS=$(nginx -V 2>&1 | sed -n -e 's/^.*arguments: //p') \
     git clone https://github.com/google/ngx_brotli.git && \
     cd ngx_brotli && git submodule update --init && cd .. && \
@@ -25,11 +20,10 @@ RUN	make modules
 
 FROM nginx:1.18.0 as final
 
-#ARG NGINX_VERSION
 COPY --from=build /src/nginx-1.18.0/objs/ngx_http_brotli_filter_module.so /usr/lib/nginx/modules/
 COPY --from=build /src/nginx-1.18.0/objs/ngx_http_brotli_static_module.so /usr/lib/nginx/modules/
 
 WORKDIR /var/www/web
 COPY --from=build-env /app/bin/Release/netstandard2.1/publish/wwwroot .
 COPY nginx.conf /etc/nginx/nginx.conf
-EXPOSE 80
+EXPOSE 80 443
