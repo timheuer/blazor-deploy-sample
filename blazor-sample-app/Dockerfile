@@ -26,7 +26,8 @@ RUN	make modules
 FROM nginx:1.18.0 as final
 
 #ARG NGINX_VERSION
-COPY --from=build /src/nginx-1.18.0/objs/*.so /etc/nginx/modules/
+COPY --from=build /src/nginx-1.18.0/objs/ngx_http_brotli_filter_module.so /usr/lib/nginx/modules/
+COPY --from=build /src/nginx-1.18.0/objs/ngx_http_brotli_static_module.so /usr/lib/nginx/modules/
 
 WORKDIR /var/www/web
 COPY --from=build-env /app/bin/Release/netstandard2.1/publish/wwwroot .
