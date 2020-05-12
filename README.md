@@ -1,7 +1,7 @@
 ![.NET Core Build and Deploy (AppSvc Win)](https://github.com/timheuer/blazor-deploy-sample/workflows/.NET%20Core%20Build%20and%20Deploy%20(AppSvc%20Win)/badge.svg) ![.NET Core Build and Deploy (Container)](https://github.com/timheuer/blazor-deploy-sample/workflows/.NET%20Core%20Build%20and%20Deploy%20(Container)/badge.svg) ![.NET Core Build and Deploy (AppSvc Linux)](https://github.com/timheuer/blazor-deploy-sample/workflows/.NET%20Core%20Build%20and%20Deploy%20(AppSvc%20Linux)/badge.svg) ![.NET Core Build and Deploy (Storage)](https://github.com/timheuer/blazor-deploy-sample/workflows/.NET%20Core%20Build%20and%20Deploy%20(Storage)/badge.svg)
 
 # Blazor WASM Deployment
-This is a sample application that uses Blazor WASM app with no host to publish as a static site to Azure Storage.  A complimentary blog post explaining this can be found here [Deploy a Blazor WASM site to Azure Storage using GitHub Actions](https://timheuer.com/blog/deploy-blazor-app-to-azure-using-github-actions).
+This is a sample application that uses Blazor WASM app with no host to publish as a static site to Azure Storage.  A complimentary blog post explaining this can be found here [Deploy a Blazor Wasm app various ways to Azure using GitHub Actions](https://timheuer.com/blog/deploy-blazor-webassembly-applications-on-azure-using-github-actions-wasm).
 
 ## How this works
 This sample takes a Blazor Web Assembly project and uses GitHub Actions to deploy it in a few ways:
