@@ -3,7 +3,7 @@ WORKDIR /app
 
 COPY . ./
 WORKDIR /app/
-RUN dotnet publish -c Release
+RUN dotnet publish -c Release -o published_app
 
 FROM nginx:1.18.0 AS build
 WORKDIR /src
@@ -24,6 +24,6 @@ COPY --from=build /src/nginx-1.18.0/objs/ngx_http_brotli_filter_module.so /usr/l
 COPY --from=build /src/nginx-1.18.0/objs/ngx_http_brotli_static_module.so /usr/lib/nginx/modules/
 
 WORKDIR /var/www/web
-COPY --from=build-env /app/bin/Release/netstandard2.1/publish/wwwroot .
+COPY --from=build-env /app/published_app/wwwroot .
 COPY nginx.conf /etc/nginx/nginx.conf
 EXPOSE 80 443

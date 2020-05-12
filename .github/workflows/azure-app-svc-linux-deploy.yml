@@ -22,13 +22,13 @@ jobs:
       run: dotnet build --configuration Release
     
     - name: Publish with dotnet
-      run: dotnet publish --configuration Release 
+      run: dotnet publish --configuration Release -o published_app
     
     - name: Publish artifacts
       uses: actions/upload-artifact@v2
       with:
         name: webapp
-        path: blazor-sample-app/bin/Release/netstandard2.1/publish/wwwroot
+        path: published_app/wwwroot
 
   deploy:
     needs: build
