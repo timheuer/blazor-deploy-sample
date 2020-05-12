@@ -18,7 +18,7 @@ RUN CONFARGS=$(nginx -V 2>&1 | sed -n -e 's/^.*arguments: //p') \
 WORKDIR nginx-1.18.0
 RUN	make modules
 
-FROM nginx:1.18.0 as final
+FROM nginx:1.18.0-alpine as final
 
 COPY --from=build /src/nginx-1.18.0/objs/ngx_http_brotli_filter_module.so /usr/lib/nginx/modules/
 COPY --from=build /src/nginx-1.18.0/objs/ngx_http_brotli_static_module.so /usr/lib/nginx/modules/
