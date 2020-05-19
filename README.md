@@ -4,7 +4,7 @@
 This is a sample application that uses Blazor WebAssembly (Wasm) app with no host to publish as a static site to Azure Storage.  A complimentary blog post explaining this can be found here [Deploy a Blazor Wasm app various ways to Azure using GitHub Actions](https://timheuer.com/blog/deploy-blazor-webassembly-applications-on-azure-using-github-actions-wasm) and [Hosting Blazor WebAssembly in Azure Static Web Apps](https://timheuer.com/blog/hosting-blazor-in-azure-static-web-apps)
 
 ## How this works
-This sample takes a Blazor Web Assembly project and uses GitHub Actions to deploy it in a few ways:
+This sample takes a Blazor Web Assembly (Wasm) project and uses GitHub Actions to deploy it in a few ways:
 
 - [Azure Storage](.github/workflows/azure-storage-deploy.yml)
 - [Azure App Service (Linux)](.github/workflows/azure-app-svc-linux-deploy.yml)
