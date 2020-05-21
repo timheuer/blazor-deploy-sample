@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.IO;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
@@ -26,8 +26,8 @@ namespace MessageFunction
             name = name ?? data?.name;
 
             string responseMessage = string.IsNullOrEmpty(name)
-                ? "This HTTP triggered function executed successfully. Pass a name in the query string or in the request body for a personalized response."
-                : $"Hello, {name}. This HTTP triggered function executed successfully.";
+                ? "This HTTP triggered function executed successfully. Enter your name and click the button for more personal."
+                : $"<strong>👋 Hello, {name}.</strong>";
 
             return new OkObjectResult(responseMessage);
         }
