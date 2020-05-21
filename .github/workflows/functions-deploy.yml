@@ -4,7 +4,7 @@ on: [push]
 
 env:
   AZURE_RESOURCE_GROUP: blazor-deployment-samples
-  env.AZURE_FUNCTIONAPP_NAME: bwasm-sayhellofunc
+  AZURE_FUNCTIONAPP_NAME: bwasm-sayhellofunc
 
 defaults:
   run:
