@@ -1,14 +1,14 @@
-name: .NET Core Build and Deploy (AppSvc Win)
+name: Azure Functions Deploy
 
 on: [push]
 
 env:
   AZURE_RESOURCE_GROUP: blazor-deployment-samples
-  AZURE_APP_NAME: bwasm-win-server
+  env.AZURE_FUNCTIONAPP_NAME: bwasm-sayhellofunc
 
 defaults:
   run:
-    working-directory: blazor-sample-app
+    working-directory: MessageFunction
 
 jobs:
   build:
@@ -20,22 +20,19 @@ jobs:
     - name: Setup .NET Core
       uses: actions/setup-dotnet@v1
       with:
-        dotnet-version: 3.1.201
+        dotnet-version: 3.1.300
 
     - name: Restore
       run: dotnet restore
 
     - name: Build with dotnet
-      run: dotnet build --configuration Release --no-restore
-    
-    - name: Publish with dotnet
-      run: dotnet publish --configuration Release -o published_app --no-build
+      run: dotnet build --configuration Release --no-restore -o published_app
     
     - name: Publish artifacts
       uses: actions/upload-artifact@v2
       with:
-        name: webapp
-        path: published_app
+        name: funcapp
+        path: published_app/wwwroot
 
   deploy:
     needs: build
@@ -47,10 +44,13 @@ jobs:
     - name: Download artifacts
       uses: actions/download-artifact@v2
       with:
-        name: webapp
+        name: funcapp
 
-    # Deploy to App Service Linux
-    - uses: azure/webapps-deploy@v2
+    # Deploy to Functions
+    - name: Deploy to Azure Functions
+      uses: Azure/functions-action@v1
+      id: fa
       with:
-        publish-profile: ${{ secrets.BWASM_PUB_PROFILE_WIN }}
-        app-name: ${{ env.AZURE_APP_NAME }}
+        app-name: ${{ env.AZURE_FUNCTIONAPP_NAME }}
+        package: ''
+        publish-profile: ${{ secrets.FUNC_PUB_PROFILE }}
