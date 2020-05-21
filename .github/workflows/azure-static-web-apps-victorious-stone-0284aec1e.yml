@@ -27,7 +27,7 @@ jobs:
         dotnet-version: 3.1.201
 
     - name: Build Blazor App
-      run: dotnet publish -c Release -o published
+      run: dotnet publish -c Release -o ../published
 
     - name: Build And Deploy
       id: builddeploy

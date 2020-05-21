@@ -26,7 +26,7 @@ jobs:
       run: dotnet restore
 
     - name: Build with dotnet
-      run: dotnet build --configuration Release --no-restore -o published_app
+      run: dotnet build --configuration Release --no-restore -o ../published_app
     
     - name: Publish artifacts
       uses: actions/upload-artifact@v2
