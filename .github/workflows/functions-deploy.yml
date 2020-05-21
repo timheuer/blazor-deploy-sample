@@ -32,7 +32,7 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: funcapp
-        path: published_app/wwwroot
+        path: published_app
 
   deploy:
     needs: build
