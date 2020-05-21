@@ -1,4 +1,4 @@
-name: .NET Core Build and Deploy (AppSvc Linux)
+name: AppSvc Linux
 
 on: [push]
 

@@ -1,4 +1,4 @@
-name: Azure Functions Deploy
+name: Functions
 
 on: [push]
 

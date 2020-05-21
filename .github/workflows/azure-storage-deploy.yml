@@ -1,4 +1,4 @@
-name: .NET Core Build and Deploy (Storage)
+name: Storage
 
 on: [push]
 

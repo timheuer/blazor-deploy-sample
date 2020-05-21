@@ -1,4 +1,4 @@
-name: .NET Core Build and Deploy (AppSvc Win)
+name: AppSvc Win
 
 on: [push]
 
