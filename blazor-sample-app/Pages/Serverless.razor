@@ -3,13 +3,13 @@
  
 <h1>Serverless</h1>
 
-<EditForm>
+@*<EditForm EditContext="@inputMessage">
 
     <InputText @bind-value="inputMessage" @bind-value:event="oninput" />
 
     <button class="btn btn-primary" @onclick="SayHelloAsync">Click me</button>
 
-</EditForm>
+</EditForm>*@
 
 @if (message == null)
 {
@@ -29,7 +29,7 @@ else
         message = await Http.GetStringAsync("https://bwasm-sayhellofunc.azurewebsites.net/api/SayHello?");
     }
 
-    protected async Task SayHelloAsync() {
-        message = await Http.GetStringAsync($"https://bwasm-sayhellofunc.azurewebsites.net/api/SayHello?name={inputMessage}");
-    }
+    //protected async Task SayHelloAsync() {
+    //    message = await Http.GetStringAsync($"https://bwasm-sayhellofunc.azurewebsites.net/api/SayHello?name={inputMessage}");
+    //}
 }
