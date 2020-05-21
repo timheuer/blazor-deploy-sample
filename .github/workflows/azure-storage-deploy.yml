@@ -68,5 +68,6 @@ jobs:
 
     # Azure logout 
     - name: logout
+      working-directory: .
       run: |
         az logout

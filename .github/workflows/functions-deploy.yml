@@ -52,5 +52,5 @@ jobs:
       id: fa
       with:
         app-name: ${{ env.AZURE_FUNCTIONAPP_NAME }}
-        package: ''
+        package: '.'
         publish-profile: ${{ secrets.FUNC_PUB_PROFILE }}
