@@ -3,9 +3,13 @@
  
 <h1>Serverless</h1>
 
-<InputText @bind-value="inputMessage" @bind-value:event="oninput" />
+<EditForm>
 
-<button class="btn btn-primary" @onclick="SayHelloAsync">Click me</button>
+    <InputText @bind-value="inputMessage" @bind-value:event="oninput" />
+
+    <button class="btn btn-primary" @onclick="SayHelloAsync">Click me</button>
+
+</EditForm>
 
 @if (message == null)
 {
