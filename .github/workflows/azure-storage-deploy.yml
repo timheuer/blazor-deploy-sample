@@ -1,6 +1,6 @@
 name: Storage
 
-on: [push]
+on: [push, workflow_dispatch]
 
 env:
   AZURE_RESOURCE_GROUP: blazor-deployment-samples
