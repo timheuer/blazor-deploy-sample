@@ -45,7 +45,7 @@ jobs:
         creds: ${{ secrets.AZURE_CONTAINER_CREDS }}
 
     - name: 'Deploy from ACR'
-      uses: azure/webapps-container-deploy@v1
+      uses: azure/webapps-deploy@v2
       with:
         app-name: '${{ env.AZURE_APP_NAME }}'
         images: 'bwasm.azurecr.io/bwasm:${{ github.sha }}'
