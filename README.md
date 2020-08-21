@@ -1,6 +1,6 @@
 ![.NET Core Build and Deploy (AppSvc Win)](https://github.com/timheuer/blazor-deploy-sample/workflows/.NET%20Core%20Build%20and%20Deploy%20(AppSvc%20Win)/badge.svg) ![.NET Core Build and Deploy (Container)](https://github.com/timheuer/blazor-deploy-sample/workflows/.NET%20Core%20Build%20and%20Deploy%20(Container)/badge.svg) ![.NET Core Build and Deploy (AppSvc Linux)](https://github.com/timheuer/blazor-deploy-sample/workflows/.NET%20Core%20Build%20and%20Deploy%20(AppSvc%20Linux)/badge.svg) ![.NET Core Build and Deploy (Storage)](https://github.com/timheuer/blazor-deploy-sample/workflows/.NET%20Core%20Build%20and%20Deploy%20(Storage)/badge.svg) ![Azure Static Web Apps](https://github.com/timheuer/blazor-deploy-sample/workflows/Azure%20Static%20Web%20Apps%20CI/CD/badge.svg)
 
-# Blazor WASM Deployment
+# Blazor Wasm Deployment
 This is a sample application that uses Blazor WebAssembly (Wasm) app with no host to publish as a static site to Azure Storage.  A complimentary blog post explaining this can be found here [Deploy a Blazor Wasm app various ways to Azure using GitHub Actions](https://timheuer.com/blog/deploy-blazor-webassembly-applications-on-azure-using-github-actions-wasm) and [Hosting Blazor WebAssembly in Azure Static Web Apps](https://timheuer.com/blog/hosting-blazor-in-azure-static-web-apps)
 
 ## How this works
